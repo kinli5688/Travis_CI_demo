@@ -6,4 +6,4 @@ python:
 install:
   - python -m pip install -r requirements.txt
 script:
-  - python3 testcases/test_apiserver.py
+  - python testcases/test_apiserver.py
