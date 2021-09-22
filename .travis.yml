@@ -2,8 +2,7 @@ sudo: false
 language: python
 python:
   - 3.6
-#  - 3.7
 install:
   - python -m pip install -r requirements.txt
 script:
-  - python testcases/test_apiserver.py
+  - python /testcases/test_apiserver.py
