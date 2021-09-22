@@ -5,4 +5,4 @@ python:
 install:
   - python -m pip install -r requirements.txt
 script:
-  - python /testcases/test_apiserver.py
+  - python Travis_CI_demo/testcases/test_apiserver.py
