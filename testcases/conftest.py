@@ -6,7 +6,7 @@ import multiprocessing
 import time
 import unittest
 import pytest
-from . import api_server
+from apiserver import api_server
 
 # sets up an HTTP server which can be used within the tests
 

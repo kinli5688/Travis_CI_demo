@@ -25,5 +25,3 @@ class TestApiServer():
         assert resp.json()["success"] == True
 
 
-if __name__ == '__main__':
-    pytest.main(['test_apiserver.py', '-vs'])
