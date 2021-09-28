@@ -1,20 +1,20 @@
--
+- test:
     name: create user which does not exist
+    import_module_functions:
+        - utils.custom_functions
+    variables:
+        - TOKEN: debugtalk
+        - random: ${gen_random_string(5)}
+        - data: '{"name": "user", "password": "123456"}'
+        - authorization: ${gen_md5($TOKEN, $data, $random)}
     request:
         url: http://127.0.0.1:5000/api/users/1000
         method: POST
         headers:
             Content-Type: application/json
-            authorization: 642f0e48fd0b3f366920f24fb6450790
-            random: A2dEx
-    data:
-        name: user1
-        password: 123456
-    response:
-        status_code: 201
-        headers:
-            Content-Type: application/json
-        body:
-            success: true
-            msg: user created successfully.
-#            uuid: JsdfwerL
+            authorization: $authorization
+            random: $random
+        data: $data
+    validators:
+        - {"check": "status_code", "comparator": "eq", "expected": 201}
+        - {"check": "content.success", "comparator": "eq", "expected": true}
